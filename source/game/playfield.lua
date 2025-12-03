@@ -99,6 +99,9 @@ function Playfield:clear()
     end
 end
 
--- Export module (make globally available for Playdate import system)
-_G.Playfield = Playfield
+-- Export module (compatible with both require and import)
+if _G then
+    _G.Playfield = Playfield
+end
+return Playfield
 

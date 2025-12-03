@@ -226,5 +226,8 @@ function GameState:rotateCurrentPiece(direction)
     return self.currentPiece:rotate(direction, self.playfield, self.collisionDetector)
 end
 
--- Export module (make globally available for Playdate import system)
-_G.GameState = GameState
+-- Export module (compatible with both require and import)
+if _G then
+    _G.GameState = GameState
+end
+return GameState

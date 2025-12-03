@@ -295,49 +295,60 @@ function Renderer:drawPauseScreen()
 end
 
 function Renderer:drawGameOverScreen(scoreManager)
-    -- Draw game over screen
+    -- Draw game over screen with white background for readability
     
-    gfx.setColor(gfx.kColorBlack)
-    gfx.setImageDrawMode(gfx.kDrawModeFillBlack)
-    
-    -- Draw "GAME OVER" text
+    -- Calculate all text positions first
     local gameOverText = "GAME OVER"
     local textWidth = gfx.getTextSize(gameOverText)
     local textX = (SCREEN_WIDTH - textWidth) / 2
     local textY = SCREEN_HEIGHT / 2 - 60
     
-    gfx.drawText(gameOverText, textX, textY)
-    
-    -- Draw final score
     local scoreText = "Final Score: " .. tostring(scoreManager:getScore())
     local scoreWidth = gfx.getTextSize(scoreText)
     local scoreX = (SCREEN_WIDTH - scoreWidth) / 2
     local scoreY = textY + 30
     
-    gfx.drawText(scoreText, scoreX, scoreY)
-    
-    -- Draw level
     local levelText = "Level: " .. tostring(scoreManager:getLevel())
     local levelWidth = gfx.getTextSize(levelText)
     local levelX = (SCREEN_WIDTH - levelWidth) / 2
     local levelY = scoreY + 25
     
-    gfx.drawText(levelText, levelX, levelY)
-    
-    -- Draw lines
     local linesText = "Lines: " .. tostring(scoreManager:getTotalLines())
     local linesWidth = gfx.getTextSize(linesText)
     local linesX = (SCREEN_WIDTH - linesWidth) / 2
     local linesY = levelY + 25
     
-    gfx.drawText(linesText, linesX, linesY)
-    
-    -- Draw restart instruction
     local restartText = "Press A to Restart"
     local restartWidth = gfx.getTextSize(restartText)
     local restartX = (SCREEN_WIDTH - restartWidth) / 2
     local restartY = linesY + 40
     
+    -- Calculate background box dimensions
+    local padding = 15
+    local boxWidth = math.max(textWidth, scoreWidth, levelWidth, linesWidth, restartWidth) + (padding * 2)
+    local boxHeight = (restartY - textY) + 20 + (padding * 2)
+    local boxX = (SCREEN_WIDTH - boxWidth) / 2
+    local boxY = textY - padding
+    
+    -- Draw white background box
+    gfx.setColor(gfx.kColorWhite)
+    gfx.fillRect(boxX, boxY, boxWidth, boxHeight)
+    
+    -- Draw black border around box
+    gfx.setColor(gfx.kColorBlack)
+    gfx.setLineWidth(2)
+    gfx.drawRect(boxX, boxY, boxWidth, boxHeight)
+    
+    -- Draw text in black
+    gfx.setColor(gfx.kColorBlack)
+    gfx.setImageDrawMode(gfx.kDrawModeFillBlack)
+    
+    gfx.drawText(gameOverText, textX, textY)
+    gfx.drawText(scoreText, scoreX, scoreY)
+    gfx.drawText(levelText, levelX, levelY)
+    gfx.drawText(linesText, linesX, linesY)
+    
+    -- Draw restart instruction (already calculated above)
     gfx.drawText(restartText, restartX, restartY)
 end
 
@@ -365,7 +376,7 @@ function Renderer:drawMenuScreen(scrollOffset)
     gfx.drawText(subtitleText, subtitleX, subtitleY)
     
     -- Draw start instruction
-    local startText = "Press A to Start"
+    local startText = "Press Up to Start"
     local startWidth = gfx.getTextSize(startText)
     local startX = (SCREEN_WIDTH - startWidth) / 2
     local startY = subtitleY + 35
@@ -388,7 +399,7 @@ function Renderer:drawMenuScreen(scrollOffset)
     gfx.drawText("Crank: Rotate piece", controlsX, controlsY + 20)
     gfx.drawText("D-Pad: Move left/right", controlsX, controlsY + 40)
     gfx.drawText("Down: Soft Drop", controlsX, controlsY + 60)
-    gfx.drawText("A: Hard Drop", controlsX, controlsY + 80)
+    gfx.drawText("Up: Hard Drop", controlsX, controlsY + 80)
     gfx.drawText("Menu: Pause", controlsX, controlsY + 100)
 end
 
@@ -446,5 +457,8 @@ function Renderer:render(gameManager)
     end
 end
 
--- Export module (make globally available for Playdate import system)
-_G.Renderer = Renderer
+-- Export module (compatible with both require and import)
+if _G then
+    _G.Renderer = Renderer
+end
+return Renderer

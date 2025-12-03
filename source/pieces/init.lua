@@ -207,7 +207,14 @@ function TetrominoFactory:peekNext()
     return self.nextPiece
 end
 
--- Export module (make globally available for Playdate import system)
-_G.Tetromino = Tetromino
-_G.TetrominoFactory = TetrominoFactory
-_G.SHAPES = SHAPES
+-- Export module (compatible with both require and import)
+if _G then
+    _G.Tetromino = Tetromino
+    _G.TetrominoFactory = TetrominoFactory
+    _G.SHAPES = SHAPES
+end
+return {
+    Tetromino = Tetromino,
+    TetrominoFactory = TetrominoFactory,
+    SHAPES = SHAPES,
+}

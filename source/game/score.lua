@@ -70,5 +70,8 @@ function ScoreManager:getFallSpeed()
     return math.max(MIN_FALL_INTERVAL, interval)
 end
 
--- Export module (make globally available for Playdate import system)
-_G.ScoreManager = ScoreManager
+-- Export module (compatible with both require and import)
+if _G then
+    _G.ScoreManager = ScoreManager
+end
+return ScoreManager

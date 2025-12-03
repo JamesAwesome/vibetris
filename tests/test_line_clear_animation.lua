@@ -22,7 +22,7 @@ _G.playdate = {
     kButtonLeft = 1,
     kButtonRight = 2,
     kButtonDown = 3,
-    kButtonA = 4,
+    kButtonUp = 4,
     kButtonMenu = 5,
 }
 

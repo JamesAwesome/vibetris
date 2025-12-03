@@ -119,8 +119,8 @@ function InputHandler:getMovement()
 end
 
 function InputHandler:isHardDropPressed()
-    -- Check if hard drop button (A) was just pressed
-    return playdate.buttonJustPressed(playdate.kButtonA)
+    -- Check if hard drop button (Up) was just pressed
+    return playdate.buttonJustPressed(playdate.kButtonUp)
 end
 
 function InputHandler:isPausePressed()
@@ -141,5 +141,8 @@ function InputHandler:provideHapticFeedback()
     playdate.ui.crankIndicator:start()
 end
 
--- Export module (make globally available for Playdate import system)
-_G.InputHandler = InputHandler
+-- Export module (compatible with both require and import)
+if _G then
+    _G.InputHandler = InputHandler
+end
+return InputHandler

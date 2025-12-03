@@ -62,6 +62,9 @@ function CollisionDetector.isValidPosition(piece, playfield)
     return true
 end
 
--- Export module (make globally available for Playdate import system)
-_G.CollisionDetector = CollisionDetector
+-- Export module (compatible with both require and import)
+if _G then
+    _G.CollisionDetector = CollisionDetector
+end
+return CollisionDetector
 

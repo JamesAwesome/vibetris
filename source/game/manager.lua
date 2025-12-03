@@ -272,5 +272,8 @@ function GameManager:getClearAnimation()
     }
 end
 
--- Export module (make globally available for Playdate import system)
-_G.GameManager = GameManager
+-- Export module (compatible with both require and import)
+if _G then
+    _G.GameManager = GameManager
+end
+return GameManager
