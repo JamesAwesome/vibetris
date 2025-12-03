@@ -89,30 +89,30 @@
   - **Property 14: Rows collapse after line clear**
   - **Validates: Requirements 5.2**
 
-- [ ] 7. Implement scoring and level system
+- [x] 7. Implement scoring and level system
   - Create ScoreManager class
   - Implement score calculation for line clears (with multi-line bonuses)
   - Implement level progression based on lines cleared
   - Implement fall speed calculation based on level
   - _Requirements: 5.3, 5.4, 6.1, 6.2, 8.1, 8.2, 8.3_
 
-- [ ] 7.1 Write property test for score updates
+- [x] 7.1 Write property test for score updates
   - **Property 16: Line clears update score**
   - **Validates: Requirements 5.4**
 
-- [ ] 7.2 Write property test for multi-line bonus
+- [x] 7.2 Write property test for multi-line bonus
   - **Property 15: Multi-line clears award bonus points**
   - **Validates: Requirements 5.3**
 
-- [ ] 7.3 Write property test for level progression
+- [x] 7.3 Write property test for level progression
   - **Property 17: Level increases with line threshold**
   - **Validates: Requirements 6.1**
 
-- [ ] 7.4 Write property test for fall speed scaling
+- [x] 7.4 Write property test for fall speed scaling
   - **Property 18: Higher levels have faster fall speed**
   - **Validates: Requirements 6.2**
 
-- [ ] 8. Implement input handling
+- [x] 8. Implement input handling
   - Create InputHandler class
   - Implement crank rotation detection with threshold
   - Implement D-pad input with auto-repeat
@@ -120,11 +120,11 @@
   - Add haptic feedback for successful rotations
   - _Requirements: 2.1, 2.2, 2.5, 3.1, 3.2, 3.4, 4.1, 4.2, 4.3, 9.1, 9.3_
 
-- [ ] 8.1 Write property test for soft drop
+- [x] 8.1 Write property test for soft drop
   - **Property 11: Soft drop increases fall speed**
   - **Validates: Requirements 4.1, 4.2**
 
-- [ ] 8.2 Write property test for hard drop
+- [x] 8.2 Write property test for hard drop
   - **Property 12: Hard drop moves to lowest position**
   - **Validates: Requirements 4.3**
 
