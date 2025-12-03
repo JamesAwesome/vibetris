@@ -1,0 +1,33 @@
+-- LuaCov configuration file
+
+return {
+  -- Filename to store stats collected
+  statsfile = "luacov.stats.out",
+  
+  -- Filename to store report
+  reportfile = "luacov.report.out",
+  
+  -- Enable/disable coverage
+  tick = true,
+  
+  -- Include patterns (only track source files)
+  include = {
+    "source",
+  },
+  
+  -- Exclude patterns (don't track test files or libraries)
+  exclude = {
+    "tests",
+    "%.test$",
+    "test_",
+  },
+  
+  -- Run reporter on completion
+  runreport = false,
+  
+  -- Delete stats file after reporting
+  deletestats = false,
+  
+  -- Process modules loaded before LuaCov
+  codefromstrings = false,
+}
