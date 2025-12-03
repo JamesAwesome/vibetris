@@ -1,0 +1,7 @@
+name=Tetris
+author=Your Name
+description=Classic Tetris game for Playdate
+bundleID=com.yourname.tetris
+version=1.0
+buildNumber=1
+imagePath=images/
