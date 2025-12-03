@@ -9,15 +9,15 @@ function InputHandler:new()
     
     -- Crank state
     self.lastCrankAngle = 0
-    self.crankThreshold = 30 -- Degrees of rotation needed to trigger rotation
+    self.crankThreshold = 25 -- Degrees of rotation needed to trigger rotation (tuned for better feel)
     self.crankAccumulator = 0
     
     -- D-pad auto-repeat state
     self.leftHoldTime = 0
     self.rightHoldTime = 0
     self.downHoldTime = 0
-    self.autoRepeatDelay = 0.15 -- Initial delay before auto-repeat starts (seconds)
-    self.autoRepeatRate = 0.05 -- Time between auto-repeats (seconds)
+    self.autoRepeatDelay = 0.25 -- Initial delay before auto-repeat starts (increased to prevent accidental double moves)
+    self.autoRepeatRate = 0.05 -- Time between auto-repeats (tuned for smooth movement)
     self.repeatTimer = 0
     
     -- Button state
@@ -141,5 +141,5 @@ function InputHandler:provideHapticFeedback()
     playdate.ui.crankIndicator:start()
 end
 
--- Export module
-return InputHandler
+-- Export module (make globally available for Playdate import system)
+_G.InputHandler = InputHandler

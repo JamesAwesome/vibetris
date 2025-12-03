@@ -90,6 +90,15 @@ function Playfield:clearLines(lines)
     end
 end
 
--- Export module
-return Playfield
+function Playfield:clear()
+    -- Clear the entire playfield (reset to empty state)
+    for y = 1, self.height do
+        for x = 1, self.width do
+            self.grid[y][x] = nil
+        end
+    end
+end
+
+-- Export module (make globally available for Playdate import system)
+_G.Playfield = Playfield
 

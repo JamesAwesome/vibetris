@@ -128,26 +128,26 @@
   - **Property 12: Hard drop moves to lowest position**
   - **Validates: Requirements 4.3**
 
-- [ ] 9. Implement game state management
+- [x] 9. Implement game state management
   - Create GameManager class
   - Implement state machine (menu, playing, paused, gameover)
   - Implement pause/unpause functionality
   - Wire together all game components
   - _Requirements: 9.1, 9.2, 9.3_
 
-- [ ] 9.1 Write property test for pause behavior
+- [x] 9.1 Write property test for pause behavior
   - **Property 20: Pause prevents game updates**
   - **Validates: Requirements 9.2**
 
-- [ ] 9.2 Write property test for pause round trip
+- [x] 9.2 Write property test for pause round trip
   - **Property 21: Pause-unpause round trip**
   - **Validates: Requirements 9.3**
 
-- [ ] 9.3 Write property test for next piece availability
+- [x] 9.3 Write property test for next piece availability
   - **Property 19: Next piece is always available**
   - **Validates: Requirements 7.1**
 
-- [ ] 10. Implement rendering system
+- [x] 10. Implement rendering system
   - Create Renderer class
   - Implement playfield grid rendering with boundaries
   - Implement Tetromino rendering with distinct patterns for each type
@@ -155,26 +155,26 @@
   - Implement pause and game over screens
   - _Requirements: 7.1, 8.1, 8.2, 8.3, 9.1, 10.1, 10.2, 10.3_
 
-- [ ] 11. Implement line clear animation
+- [x] 11. Implement line clear animation
   - Add visual feedback for clearing lines
   - Ensure animation doesn't block game logic
   - _Requirements: 5.5_
 
-- [ ] 12. Integrate all components in main game loop
+- [x] 12. Integrate all components in main game loop
   - Wire GameManager, InputHandler, and Renderer together
   - Implement playdate.update() function
   - Add FPS counter for performance monitoring
   - _Requirements: 10.4_
 
-- [ ] 13. Checkpoint - Ensure all tests pass
+- [x] 13. Checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 14. Polish and optimization
+- [x] 14. Polish and optimization
   - Optimize rendering for consistent 30+ FPS
   - Tune crank rotation sensitivity
   - Adjust timing values (lock delay, auto-repeat rates)
   - Add sound effects (if time permits)
   - _Requirements: 10.3, 10.4_
 
-- [ ] 15. Final checkpoint - Ensure all tests pass
+- [x] 15. Final checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.

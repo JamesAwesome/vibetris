@@ -1,16 +1,12 @@
 -- Game module initialization
--- This module will contain game state management and coordination
+-- This module imports all game components and makes them globally available
 
-local Playfield = require("game/playfield")
-local CollisionDetector = require("game/collision")
-local GameState = require("game/state")
-local ScoreManager = require("game/score")
-local InputHandler = require("input/init")
+import "game/playfield"
+import "game/collision"
+import "game/state"
+import "game/score"
+import "input/init"
+import "game/manager"
 
-return {
-    Playfield = Playfield,
-    CollisionDetector = CollisionDetector,
-    GameState = GameState,
-    ScoreManager = ScoreManager,
-    InputHandler = InputHandler,
-}
+-- All classes are now globally available:
+-- Playfield, CollisionDetector, GameState, ScoreManager, InputHandler, GameManager

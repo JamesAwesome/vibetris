@@ -35,16 +35,17 @@ playdate-tetris/
 ### source/game/
 Game state management, coordination between components, and the main game loop logic.
 
-**Will contain:**
-- GameManager - Overall game flow and state machine
-- Playfield - 10x20 grid management
+**Contains:**
+- GameManager - Overall game flow and state machine (menu, playing, paused, gameover)
+- GameState - Manages falling pieces, lock delay, and piece spawning
+- Playfield - 10x20 grid management and line clearing
 - CollisionDetector - Collision detection logic
 - ScoreManager - Scoring and level progression
 
 ### source/pieces/
 Tetromino shapes, rotation states, and piece generation.
 
-**Will contain:**
+**Contains:**
 - Tetromino - Piece representation and transformations
 - TetrominoFactory - Random piece generation and preview management
 - Shape definitions for all 7 piece types (I, O, T, S, Z, J, L)
@@ -52,7 +53,7 @@ Tetromino shapes, rotation states, and piece generation.
 ### source/input/
 Input handling for all Playdate controls.
 
-**Will contain:**
+**Contains:**
 - InputHandler - Crank rotation, D-pad, and button processing
 - Auto-repeat logic for held buttons
 - Haptic feedback triggers
