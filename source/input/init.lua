@@ -123,6 +123,16 @@ function InputHandler:isHardDropPressed()
     return playdate.buttonJustPressed(playdate.kButtonUp)
 end
 
+function InputHandler:isStartPressed()
+    -- Check if start button (A) was just pressed
+    return playdate.buttonJustPressed(playdate.kButtonA)
+end
+
+function InputHandler:isFPSTogglePressed()
+    -- Check if FPS toggle button (B) was just pressed
+    return playdate.buttonJustPressed(playdate.kButtonB)
+end
+
 function InputHandler:isPausePressed()
     -- Check if pause button (menu) was just pressed
     return playdate.buttonJustPressed(playdate.kButtonMenu)

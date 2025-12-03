@@ -49,6 +49,8 @@ function playdate.update()
     playdate.timer.updateTimers()
     gfx.sprite.update()
     
-    -- Draw FPS counter
-    playdate.drawFPS(0, 0)
+    -- Draw FPS counter if enabled
+    if gameManager.showFPS then
+        playdate.drawFPS(0, 0)
+    end
 end

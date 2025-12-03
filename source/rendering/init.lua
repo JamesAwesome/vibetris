@@ -318,7 +318,7 @@ function Renderer:drawGameOverScreen(scoreManager)
     local linesX = (SCREEN_WIDTH - linesWidth) / 2
     local linesY = levelY + 25
     
-    local restartText = "Press A to Restart"
+    local restartText = "Press Up to Restart"
     local restartWidth = gfx.getTextSize(restartText)
     local restartX = (SCREEN_WIDTH - restartWidth) / 2
     local restartY = linesY + 40
@@ -376,7 +376,7 @@ function Renderer:drawMenuScreen(scrollOffset)
     gfx.drawText(subtitleText, subtitleX, subtitleY)
     
     -- Draw start instruction
-    local startText = "Press Up to Start"
+    local startText = "Press A to Start"
     local startWidth = gfx.getTextSize(startText)
     local startX = (SCREEN_WIDTH - startWidth) / 2
     local startY = subtitleY + 35
@@ -401,6 +401,7 @@ function Renderer:drawMenuScreen(scrollOffset)
     gfx.drawText("Down: Soft Drop", controlsX, controlsY + 60)
     gfx.drawText("Up: Hard Drop", controlsX, controlsY + 80)
     gfx.drawText("Menu: Pause", controlsX, controlsY + 100)
+    gfx.drawText("B: Toggle FPS", controlsX, controlsY + 120)
 end
 
 function Renderer:render(gameManager)

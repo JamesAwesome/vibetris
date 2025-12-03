@@ -22,6 +22,9 @@ function GameManager:new(playfield, factory, collisionDetector, scoreManager, in
     -- Menu scroll state
     self.menuScrollOffset = 0
     
+    -- Settings
+    self.showFPS = false  -- FPS counter hidden by default
+    
     -- Line clear animation state
     self.clearingLines = nil -- Array of line indices being cleared
     self.clearAnimationTimer = 0
@@ -84,8 +87,13 @@ function GameManager:updateMenu(dt)
             self.menuScrollOffset = math.max(0, math.min(maxScroll, self.menuScrollOffset))
         end
         
+        -- Toggle FPS counter with B button
+        if self.inputHandler:isFPSTogglePressed() then
+            self.showFPS = not self.showFPS
+        end
+        
         -- Start game on A button
-        if self.inputHandler:isHardDropPressed() then
+        if self.inputHandler:isStartPressed() then
             self:init()
         end
     end
@@ -103,6 +111,11 @@ function GameManager:updatePlaying(dt)
     -- Check for pause input
     if self.inputHandler then
         self.inputHandler:update(dt)
+        
+        -- Toggle FPS counter with B button
+        if self.inputHandler:isFPSTogglePressed() then
+            self.showFPS = not self.showFPS
+        end
         
         if self.inputHandler:isPausePressed() then
             self:pause()
@@ -136,6 +149,11 @@ function GameManager:updatePaused(dt)
     if self.inputHandler then
         self.inputHandler:update(dt)
         
+        -- Toggle FPS counter with B button
+        if self.inputHandler:isFPSTogglePressed() then
+            self.showFPS = not self.showFPS
+        end
+        
         if self.inputHandler:isPausePressed() then
             self:unpause()
         end
@@ -149,8 +167,13 @@ function GameManager:updateGameOver(dt)
     if self.inputHandler then
         self.inputHandler:update(dt)
         
+        -- Toggle FPS counter with B button
+        if self.inputHandler:isFPSTogglePressed() then
+            self.showFPS = not self.showFPS
+        end
+        
         -- Restart game on A button
-        if self.inputHandler:isHardDropPressed() then
+        if self.inputHandler:isStartPressed() then
             self:init()
         end
     end
@@ -186,7 +209,7 @@ function GameManager:handleInput()
     local isSoftDropping = self.inputHandler:isSoftDropActive()
     self.gameState:setSoftDrop(isSoftDropping)
     
-    -- Handle hard drop (A button)
+    -- Handle hard drop (Up button)
     if self.inputHandler:isHardDropPressed() then
         self.gameState:hardDrop()
     end
