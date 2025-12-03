@@ -60,19 +60,19 @@
   - Implement spawn-after-lock logic
   - _Requirements: 1.2, 1.3, 1.4, 1.5_
 
-- [ ] 5.1 Write property test for automatic descent
+- [x] 5.1 Write property test for automatic descent
   - **Property 2: Automatic piece descent**
   - **Validates: Requirements 1.2**
 
-- [ ] 5.2 Write property test for lock delay
+- [x] 5.2 Write property test for lock delay
   - **Property 3: Lock delay preserves piece state**
   - **Validates: Requirements 1.3**
 
-- [ ] 5.3 Write property test for spawn after lock
+- [x] 5.3 Write property test for spawn after lock
   - **Property 4: Spawn after lock**
   - **Validates: Requirements 1.4**
 
-- [ ] 5.4 Write property test for game over condition
+- [x] 5.4 Write property test for game over condition
   - **Property 5: Game over on blocked spawn**
   - **Validates: Requirements 1.5**
 
