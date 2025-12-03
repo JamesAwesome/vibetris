@@ -31,6 +31,8 @@ local UI_X = PLAYFIELD_X + (PLAYFIELD_WIDTH * BLOCK_SIZE) + 30
 local UI_Y = 20  -- Align with top of playfield
 
 -- Piece patterns for visual distinction (using different fill patterns)
+-- Shadow piece uses {0x55, 0xAA, 0x55, 0xAA, ...} for 50% checkerboard dither
+-- This creates a light gray appearance distinct from all active piece patterns
 local PIECE_PATTERNS = {
     I = {0xAA, 0x55, 0xAA, 0x55, 0xAA, 0x55, 0xAA, 0x55}, -- Diagonal lines
     O = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}, -- Solid
@@ -155,6 +157,56 @@ function Renderer:drawBlock(x, y, pieceType, isClearing, clearAnimation)
         gfx.setColor(gfx.kColorBlack)
         gfx.drawRect(screenX, screenY, BLOCK_SIZE, BLOCK_SIZE)
     end
+end
+
+function Renderer:drawShadowPiece(piece, shadowY)
+    -- Draw the shadow/ghost piece showing where the piece will land
+    if not piece or not shadowY then
+        return
+    end
+    
+    -- Don't draw shadow if it's at the same position as the current piece
+    if shadowY == piece.y then
+        return
+    end
+    
+    -- Get blocks for the current piece
+    local blocks = piece:getBlocks()
+    
+    -- Calculate the Y offset between current position and shadow position
+    local yOffset = shadowY - piece.y
+    
+    -- Draw each block at the shadow position with a dithered pattern
+    for i = 1, #blocks do
+        local block = blocks[i]
+        -- Shadow block has same x, but y is offset by the difference
+        local shadowBlockX = block.x
+        local shadowBlockY = block.y + yOffset
+        
+        self:drawShadowBlock(shadowBlockX, shadowBlockY)
+    end
+end
+
+function Renderer:drawShadowBlock(x, y)
+    -- Draw a single shadow block with a distinctive dithered pattern
+    local screenX = PLAYFIELD_X + x * BLOCK_SIZE
+    local screenY = PLAYFIELD_Y + y * BLOCK_SIZE
+    
+    -- Use a 50% dithered checkerboard pattern for clear distinction from active pieces
+    -- This creates a light gray appearance on the monochrome screen
+    -- Pattern: alternating pixels in a checkerboard (0x55 = 01010101, 0xAA = 10101010)
+    -- This is distinct from all active piece patterns which are denser or have different structures
+    local shadowPattern = {0x55, 0xAA, 0x55, 0xAA, 0x55, 0xAA, 0x55, 0xAA}
+    gfx.setPattern(shadowPattern)
+    gfx.fillRect(screenX, screenY, BLOCK_SIZE, BLOCK_SIZE)
+    
+    -- Draw a subtle outline to define the block boundaries
+    -- Using a lighter dither for the outline to keep it subtle
+    gfx.setDitherPattern(0.5, gfx.image.kDitherTypeBayer4x4)
+    gfx.drawRect(screenX, screenY, BLOCK_SIZE, BLOCK_SIZE)
+    
+    -- Reset to solid black for subsequent drawing
+    gfx.setColor(gfx.kColorBlack)
 end
 
 function Renderer:drawPiece(piece)
@@ -420,6 +472,11 @@ function Renderer:render(gameManager)
         
         if gameManager.gameState and gameManager.gameState.playfield then
             self:drawPlayfield(gameManager.gameState.playfield, clearAnimation)
+        end
+        
+        -- Draw shadow piece before active piece so it appears behind
+        if gameManager.gameState and gameManager.gameState.currentPiece and gameManager.gameState.shadowY then
+            self:drawShadowPiece(gameManager.gameState.currentPiece, gameManager.gameState.shadowY)
         end
         
         if gameManager.gameState and gameManager.gameState.currentPiece then

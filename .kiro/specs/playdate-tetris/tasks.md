@@ -191,3 +191,51 @@
 
 - [x] 17. Checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
+
+- [x] 18. Implement shadow/ghost piece feature
+  - Add function to calculate the hard drop landing position for current piece
+  - Store shadow piece position in game state
+  - Update shadow position whenever piece moves or rotates
+  - _Requirements: 4.3 (Hard drop preview)_
+
+- [x] 18.1 Implement shadow position calculation
+  - Create function in GameState to calculate lowest valid position for current piece
+  - Function should return y-coordinate where piece would land if hard dropped
+  - Reuse existing collision detection logic
+  - _Requirements: 4.3_
+
+- [x] 18.2 Update shadow position on piece changes
+  - Recalculate shadow position after horizontal movement
+  - Recalculate shadow position after rotation
+  - Recalculate shadow position after automatic descent
+  - Ensure shadow updates don't impact performance
+  - _Requirements: 4.3_
+
+- [x] 18.3 Render shadow piece
+  - Add shadow piece rendering to Renderer class
+  - Draw shadow at calculated position with distinct visual style (outline only, dithered pattern, or lighter color)
+  - Ensure shadow renders behind the active piece
+  - Shadow should use same shape as current piece
+  - _Requirements: 10.2_
+
+- [x] 18.4 Add visual distinction for shadow
+  - Use dithered/dotted pattern for shadow blocks
+  - Ensure shadow is clearly distinguishable from active piece and locked blocks
+  - Test visibility on monochrome Playdate screen
+  - _Requirements: 10.3_
+
+- [x] 18.5 Write unit tests for shadow calculation
+  - Test shadow position calculation for various playfield states
+  - Test shadow updates after piece movements
+  - Test shadow position when piece is already at bottom
+  - Test shadow position with obstacles below
+  - _Requirements: 4.3_
+
+- [x] 18.6 Write property test for shadow accuracy
+  - **Property 23: Shadow position matches hard drop destination**
+  - Verify that shadow y-position equals the position piece would reach on hard drop
+  - Test across random piece types, rotations, and playfield states
+  - **Validates: Requirements 4.3**
+
+- [-] 19. Checkpoint - Ensure all tests pass
+  - Ensure all tests pass, ask the user if questions arise.

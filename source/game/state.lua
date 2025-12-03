@@ -13,6 +13,7 @@ function GameState:new(playfield, factory, collisionDetector)
     -- Game state
     self.currentPiece = nil
     self.nextPiece = nil
+    self.shadowY = nil -- Y-coordinate where current piece would land if hard dropped
     self.state = "playing" -- "playing", "paused", "gameover"
     
     -- Timing
@@ -45,6 +46,9 @@ function GameState:spawnPiece()
     -- Reset lock state
     self.isLocking = false
     self.lockTimer = 0
+    
+    -- Calculate initial shadow position
+    self.shadowY = self:calculateShadowY()
     
     return true
 end
@@ -118,6 +122,8 @@ function GameState:applyGravity()
         -- Piece moved down successfully - reset lock state
         self.isLocking = false
         self.lockTimer = 0
+        -- Update shadow position after automatic descent
+        self.shadowY = self:calculateShadowY()
     end
 end
 
@@ -187,17 +193,29 @@ function GameState:setSoftDrop(active)
     end
 end
 
+function GameState:calculateShadowY()
+    -- Calculate the y-coordinate where the current piece would land if hard dropped
+    -- Returns the lowest valid y position for the current piece
+    if not self.currentPiece then
+        return nil
+    end
+    
+    local shadowY = self.currentPiece.y
+    while self.collisionDetector.canMoveTo(self.currentPiece, self.playfield, self.currentPiece.x, shadowY + 1) do
+        shadowY = shadowY + 1
+    end
+    
+    return shadowY
+end
+
 function GameState:hardDrop()
     -- Instantly drop the piece to the lowest valid position and lock it
     if not self.currentPiece then
         return
     end
     
-    -- Find the lowest valid position
-    local lowestY = self.currentPiece.y
-    while self.collisionDetector.canMoveTo(self.currentPiece, self.playfield, self.currentPiece.x, lowestY + 1) do
-        lowestY = lowestY + 1
-    end
+    -- Find the lowest valid position using shadow calculation
+    local lowestY = self:calculateShadowY()
     
     -- Move piece to lowest position
     self.currentPiece.y = lowestY
@@ -213,7 +231,14 @@ function GameState:moveCurrentPiece(dx, dy)
         return false
     end
     
-    return self.currentPiece:move(dx, dy, self.playfield, self.collisionDetector)
+    local moved = self.currentPiece:move(dx, dy, self.playfield, self.collisionDetector)
+    
+    -- Update shadow position after horizontal movement
+    if moved and dx ~= 0 then
+        self.shadowY = self:calculateShadowY()
+    end
+    
+    return moved
 end
 
 function GameState:rotateCurrentPiece(direction)
@@ -223,7 +248,14 @@ function GameState:rotateCurrentPiece(direction)
         return false
     end
     
-    return self.currentPiece:rotate(direction, self.playfield, self.collisionDetector)
+    local rotated = self.currentPiece:rotate(direction, self.playfield, self.collisionDetector)
+    
+    -- Update shadow position after rotation
+    if rotated then
+        self.shadowY = self:calculateShadowY()
+    end
+    
+    return rotated
 end
 
 -- Export module (compatible with both require and import)
