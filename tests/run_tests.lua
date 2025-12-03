@@ -38,6 +38,10 @@ local unit_tests_passed = require("test_tetromino_shapes")
 -- Property-based tests
 require("test_piece_spawning")
 require("test_collision_detection")
+require("test_horizontal_movement")
+require("test_rotation")
+require("test_wall_kicks")
+require("test_failed_rotation")
 
 print("Playdate Tetris - Property-Based Test Suite")
 print("============================================")

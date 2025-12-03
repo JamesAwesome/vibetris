@@ -31,25 +31,25 @@
   - **Property 10: Invalid movements are rejected**
   - **Validates: Requirements 3.3**
 
-- [ ] 4. Implement Tetromino movement and rotation
+- [x] 4. Implement Tetromino movement and rotation
   - Implement horizontal movement (left/right)
   - Implement rotation with wall kick system
   - Implement movement validation against playfield
   - _Requirements: 2.1, 2.2, 2.3, 2.4, 3.1, 3.2, 3.3_
 
-- [ ] 4.1 Write property test for horizontal movement
+- [x] 4.1 Write property test for horizontal movement
   - **Property 9: Horizontal movement changes position**
   - **Validates: Requirements 3.1, 3.2**
 
-- [ ] 4.2 Write property test for rotation
+- [x] 4.2 Write property test for rotation
   - **Property 6: Crank rotation changes piece orientation**
   - **Validates: Requirements 2.1, 2.2**
 
-- [ ] 4.3 Write property test for wall kicks
+- [x] 4.3 Write property test for wall kicks
   - **Property 7: Wall kick attempts on blocked rotation**
   - **Validates: Requirements 2.3**
 
-- [ ] 4.4 Write property test for failed rotation
+- [x] 4.4 Write property test for failed rotation
   - **Property 8: Failed rotation preserves state**
   - **Validates: Requirements 2.4**
 
