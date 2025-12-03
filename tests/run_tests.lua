@@ -3,6 +3,13 @@
 -- Test runner for Playdate Tetris
 -- This script runs all property-based tests
 
+-- Add luarocks paths
+package.path = package.path .. ";/Users/james/.luarocks/share/lua/5.4/?.lua;/Users/james/.luarocks/share/lua/5.4/?/init.lua"
+package.cpath = package.cpath .. ";/Users/james/.luarocks/lib/lua/5.4/?.so"
+
+-- Start code coverage tracking
+require("luacov")
+
 -- Add tests directory to package path
 package.path = package.path .. ";./tests/?.lua;./tests/lib/?.lua;./source/?.lua;../source/?.lua"
 
@@ -36,6 +43,7 @@ require("test_framework")
 local unit_tests_passed = require("test_tetromino_shapes")
 require("test_menu_scrolling")
 require("test_a_button_hard_drop")
+require("test_game_manager")
 
 -- Property-based tests
 require("test_piece_spawning")
@@ -66,6 +74,48 @@ print("============================================")
 
 -- Run all tests
 local results, all_passed = lqc.runTests()
+
+-- Generate coverage report
+print("\n=== Generating Coverage Report ===")
+local luacov_runner = require("luacov.runner")
+luacov_runner.shutdown()
+
+-- Run the reporter to generate human-readable report
+os.execute("luacov")
+
+-- Display coverage summary
+print("\nCoverage report generated: luacov.report.out")
+print("Run 'cat luacov.report.out' to view detailed coverage")
+
+-- Try to display a summary
+local report_file = io.open("luacov.report.out", "r")
+if report_file then
+    print("\n=== Coverage Summary ===")
+    local in_summary = false
+    local summary_lines = {}
+    
+    for line in report_file:lines() do
+        -- Look for the summary section at the end
+        if line:match("^Summary$") then
+            in_summary = true
+            table.insert(summary_lines, line)
+        elseif in_summary then
+            table.insert(summary_lines, line)
+        end
+    end
+    
+    -- Print the summary section
+    for _, line in ipairs(summary_lines) do
+        print(line)
+    end
+    
+    report_file:close()
+    
+    -- If no summary found, show a simple message
+    if #summary_lines == 0 then
+        print("Summary section not found in report. View full report with: cat luacov.report.out")
+    end
+end
 
 -- Exit with appropriate code
 if all_passed then

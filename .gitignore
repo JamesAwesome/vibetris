@@ -1,2 +1,6 @@
 *.pdx
 .DS_Store
+
+# LuaCov coverage files
+luacov.stats.out
+luacov.report.out
