@@ -2,6 +2,8 @@
 
 A classic Tetris game built for the Playdate console using the Playdate Lua SDK.
 
+![Vibetris Demo](https://github.com/JamesAwesome/vibetris/raw/main/vibetris-demo.gif)
+
 ## Features
 
 - Classic Tetris gameplay with all 7 standard tetrominos
