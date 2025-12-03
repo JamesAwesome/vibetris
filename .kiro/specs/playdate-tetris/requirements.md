@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This document specifies the requirements for a Tetris game implementation for the Playdate handheld console. The game follows classic Tetris mechanics with a unique twist: players use the Playdate's physical crank to rotate falling pieces, providing a tactile and engaging gameplay experience. The game must run efficiently on the Playdate hardware and leverage the console's unique input methods while maintaining the core Tetris gameplay that players expect.
+This document specifies the requirements for a Tetris game implementation for the Playdate handheld console. The game follows classic Tetris mechanics with flexible input options: players can use the Playdate's physical crank to rotate falling pieces for a tactile experience, or use the B button for traditional button-based rotation. The game must run efficiently on the Playdate hardware and support both input methods while maintaining the core Tetris gameplay that players expect.
 
 ## Glossary
 
@@ -30,15 +30,16 @@ This document specifies the requirements for a Tetris game implementation for th
 
 ### Requirement 2
 
-**User Story:** As a player, I want to rotate Tetrominos using the Playdate crank, so that I can position pieces using the console's unique input method.
+**User Story:** As a player, I want to rotate Tetrominos using the Playdate crank or the B button, so that I can position pieces using either the console's unique input method or traditional button controls.
 
 #### Acceptance Criteria
 
 1. WHEN the player rotates the Crank clockwise THEN the Tetris Game SHALL rotate the active Tetromino 90 degrees clockwise
 2. WHEN the player rotates the Crank counter-clockwise THEN the Tetris Game SHALL rotate the active Tetromino 90 degrees counter-clockwise
-3. WHEN a rotation would cause the Tetromino to overlap existing blocks or exceed Playfield boundaries THEN the Tetris Game SHALL attempt wall kick adjustments
-4. WHEN wall kick adjustments fail THEN the Tetris Game SHALL prevent the rotation and maintain the current orientation
-5. WHEN a rotation is successful THEN the Tetris Game SHALL provide haptic feedback through the Crank
+3. WHEN the player presses the B button THEN the Tetris Game SHALL rotate the active Tetromino 90 degrees clockwise
+4. WHEN a rotation would cause the Tetromino to overlap existing blocks or exceed Playfield boundaries THEN the Tetris Game SHALL attempt wall kick adjustments
+5. WHEN wall kick adjustments fail THEN the Tetris Game SHALL prevent the rotation and maintain the current orientation
+6. WHEN a rotation is successful via the Crank THEN the Tetris Game SHALL provide haptic feedback through the Crank
 
 ### Requirement 3
 

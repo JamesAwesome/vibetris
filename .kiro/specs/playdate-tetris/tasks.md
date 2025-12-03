@@ -118,7 +118,7 @@
   - Implement D-pad input with auto-repeat
   - Implement button handling (A for hard drop, menu for pause)
   - Add haptic feedback for successful rotations
-  - _Requirements: 2.1, 2.2, 2.5, 3.1, 3.2, 3.4, 4.1, 4.2, 4.3, 9.1, 9.3_
+  - _Requirements: 2.1, 2.2, 2.6, 3.1, 3.2, 3.4, 4.1, 4.2, 4.3, 9.1, 9.3_
 
 - [x] 8.1 Write property test for soft drop
   - **Property 11: Soft drop increases fall speed**
@@ -177,4 +177,17 @@
   - _Requirements: 10.3, 10.4_
 
 - [x] 15. Final checkpoint - Ensure all tests pass
+  - Ensure all tests pass, ask the user if questions arise.
+
+- [x] 16. Add B button rotation support
+  - Modify InputHandler to detect B button presses
+  - Wire B button input to rotation logic in GameManager
+  - Ensure B button rotation uses the same validation and wall kick logic as crank rotation
+  - _Requirements: 2.3_
+
+- [x] 16.1 Write property test for B button rotation
+  - **Property 22: B button rotation changes piece orientation**
+  - **Validates: Requirements 2.3**
+
+- [x] 17. Checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.

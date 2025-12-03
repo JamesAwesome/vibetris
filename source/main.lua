@@ -24,6 +24,14 @@ local gameState = GameState:new(playfield, factory, collisionDetector)
 local gameManager = GameManager:new(playfield, factory, collisionDetector, scoreManager, inputHandler, gameState)
 local renderer = Renderer:new()
 
+-- Set up system menu
+local menu = playdate.getSystemMenu()
+
+-- Add FPS toggle to system menu
+local fpsMenuItem, error = menu:addCheckmarkMenuItem("Show FPS", false, function(value)
+    gameManager.showFPS = value
+end)
+
 -- Track delta time
 local lastTime = playdate.getCurrentTimeMilliseconds()
 

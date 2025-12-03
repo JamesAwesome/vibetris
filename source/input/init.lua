@@ -23,6 +23,7 @@ function InputHandler:new()
     -- Button state
     self.hardDropPressed = false
     self.pausePressed = false
+    self.rotateButtonPressed = false
     
     -- Soft drop state
     self.isSoftDropping = false
@@ -119,18 +120,13 @@ function InputHandler:getMovement()
 end
 
 function InputHandler:isHardDropPressed()
-    -- Check if hard drop button (Up) was just pressed
-    return playdate.buttonJustPressed(playdate.kButtonUp)
+    -- Check if hard drop button (Up or A) was just pressed
+    return playdate.buttonJustPressed(playdate.kButtonUp) or playdate.buttonJustPressed(playdate.kButtonA)
 end
 
 function InputHandler:isStartPressed()
     -- Check if start button (A) was just pressed
     return playdate.buttonJustPressed(playdate.kButtonA)
-end
-
-function InputHandler:isFPSTogglePressed()
-    -- Check if FPS toggle button (B) was just pressed
-    return playdate.buttonJustPressed(playdate.kButtonB)
 end
 
 function InputHandler:isPausePressed()
@@ -141,6 +137,11 @@ end
 function InputHandler:isSoftDropActive()
     -- Check if soft drop (down button) is currently held
     return self.isSoftDropping
+end
+
+function InputHandler:isRotateButtonPressed()
+    -- Check if rotate button (B) was just pressed
+    return playdate.buttonJustPressed(playdate.kButtonB)
 end
 
 function InputHandler:provideHapticFeedback()

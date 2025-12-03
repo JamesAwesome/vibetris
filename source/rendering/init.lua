@@ -396,12 +396,11 @@ function Renderer:drawMenuScreen(scrollOffset)
     local controlsX = 50
     
     gfx.drawText("Controls:", controlsX, controlsY)
-    gfx.drawText("Crank: Rotate piece", controlsX, controlsY + 20)
+    gfx.drawText("Crank or B: Rotate piece", controlsX, controlsY + 20)
     gfx.drawText("D-Pad: Move left/right", controlsX, controlsY + 40)
     gfx.drawText("Down: Soft Drop", controlsX, controlsY + 60)
-    gfx.drawText("Up: Hard Drop", controlsX, controlsY + 80)
-    gfx.drawText("Menu: Pause", controlsX, controlsY + 100)
-    gfx.drawText("B: Toggle FPS", controlsX, controlsY + 120)
+    gfx.drawText("Up or A: Hard Drop", controlsX, controlsY + 80)
+    gfx.drawText("Menu: Pause/Settings", controlsX, controlsY + 100)
 end
 
 function Renderer:render(gameManager)

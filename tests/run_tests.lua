@@ -34,6 +34,8 @@ require("test_framework")
 
 -- Unit tests
 local unit_tests_passed = require("test_tetromino_shapes")
+require("test_menu_scrolling")
+require("test_a_button_hard_drop")
 
 -- Property-based tests
 require("test_piece_spawning")
@@ -57,6 +59,7 @@ require("test_hard_drop")
 require("test_pause_behavior")
 require("test_pause_round_trip")
 require("test_next_piece_availability")
+require("test_b_button_rotation")
 
 print("Playdate Tetris - Property-Based Test Suite")
 print("============================================")

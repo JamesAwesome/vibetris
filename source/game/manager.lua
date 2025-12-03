@@ -78,18 +78,27 @@ function GameManager:updateMenu(dt)
     if self.inputHandler then
         self.inputHandler:update(dt)
         
-        -- Handle crank scrolling
+        -- Handle crank scrolling (clockwise = scroll down, counter-clockwise = scroll up)
         local crankChange = playdate.getCrankChange()
         if crankChange ~= 0 then
-            self.menuScrollOffset = self.menuScrollOffset - crankChange
+            self.menuScrollOffset = self.menuScrollOffset + crankChange
             -- Clamp scroll offset (0 to max scroll)
             local maxScroll = 100 -- Allow scrolling down 100 pixels
             self.menuScrollOffset = math.max(0, math.min(maxScroll, self.menuScrollOffset))
         end
         
-        -- Toggle FPS counter with B button
-        if self.inputHandler:isFPSTogglePressed() then
-            self.showFPS = not self.showFPS
+        -- Handle down button scrolling
+        if playdate.buttonJustPressed(playdate.kButtonDown) then
+            self.menuScrollOffset = self.menuScrollOffset + 20 -- Scroll down by 20 pixels
+            local maxScroll = 100
+            self.menuScrollOffset = math.max(0, math.min(maxScroll, self.menuScrollOffset))
+        end
+        
+        -- Handle up button scrolling
+        if playdate.buttonJustPressed(playdate.kButtonUp) then
+            self.menuScrollOffset = self.menuScrollOffset - 20 -- Scroll up by 20 pixels
+            local maxScroll = 100
+            self.menuScrollOffset = math.max(0, math.min(maxScroll, self.menuScrollOffset))
         end
         
         -- Start game on A button
@@ -111,11 +120,6 @@ function GameManager:updatePlaying(dt)
     -- Check for pause input
     if self.inputHandler then
         self.inputHandler:update(dt)
-        
-        -- Toggle FPS counter with B button
-        if self.inputHandler:isFPSTogglePressed() then
-            self.showFPS = not self.showFPS
-        end
         
         if self.inputHandler:isPausePressed() then
             self:pause()
@@ -149,11 +153,6 @@ function GameManager:updatePaused(dt)
     if self.inputHandler then
         self.inputHandler:update(dt)
         
-        -- Toggle FPS counter with B button
-        if self.inputHandler:isFPSTogglePressed() then
-            self.showFPS = not self.showFPS
-        end
-        
         if self.inputHandler:isPausePressed() then
             self:unpause()
         end
@@ -166,11 +165,6 @@ function GameManager:updateGameOver(dt)
     -- Check for restart input
     if self.inputHandler then
         self.inputHandler:update(dt)
-        
-        -- Toggle FPS counter with B button
-        if self.inputHandler:isFPSTogglePressed() then
-            self.showFPS = not self.showFPS
-        end
         
         -- Restart game on A button
         if self.inputHandler:isStartPressed() then
@@ -197,6 +191,11 @@ function GameManager:handleInput()
             -- Haptic feedback would go here
             -- playdate.crankHaptic() or similar
         end
+    end
+    
+    -- Handle B button rotation (clockwise)
+    if self.inputHandler:isRotateButtonPressed() then
+        self.gameState:rotateCurrentPiece(1) -- Clockwise rotation
     end
     
     -- Handle horizontal movement

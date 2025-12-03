@@ -2,7 +2,7 @@
 
 ## Overview
 
-This Tetris implementation for Playdate follows a component-based architecture that separates game logic, input handling, and rendering. The design leverages Lua's table-based object system and the Playdate SDK's sprite and graphics APIs. The unique crank-based rotation mechanic is integrated through the SDK's crank input system, providing tactile feedback through the device's haptic capabilities.
+This Tetris implementation for Playdate follows a component-based architecture that separates game logic, input handling, and rendering. The design leverages Lua's table-based object system and the Playdate SDK's sprite and graphics APIs. The game supports dual rotation input methods: the unique crank-based rotation mechanic is integrated through the SDK's crank input system (providing tactile feedback through the device's haptic capabilities), and traditional button-based rotation via the B button for players who prefer conventional controls.
 
 The game loop follows the standard Playdate pattern with a `playdate.update()` function called every frame. Game state is managed through a finite state machine that handles menu, playing, paused, and game over states.
 
@@ -100,6 +100,7 @@ Processes player input from crank, D-pad, and buttons.
 
 **Responsibilities:**
 - Read crank angle changes and trigger rotations
+- Handle B button presses for rotation
 - Handle D-pad movement with auto-repeat
 - Process button presses for hard drop and pause
 - Provide haptic feedback for crank rotations
@@ -110,6 +111,7 @@ InputHandler = {}
 function InputHandler:init()
 function InputHandler:update()
 function InputHandler:getCrankRotation()
+function InputHandler:isRotateButtonPressed()
 function InputHandler:getMovement()
 function InputHandler:isHardDropPressed()
 function InputHandler:isPausePressed()
@@ -270,6 +272,10 @@ Property 5: Game over on blocked spawn
 Property 6: Crank rotation changes piece orientation
 *For any* Tetromino and crank rotation direction (clockwise or counter-clockwise), the piece's rotation state should change by ±90 degrees when rotation is valid
 **Validates: Requirements 2.1, 2.2**
+
+Property 22: B button rotation changes piece orientation
+*For any* Tetromino, pressing the B button should rotate the piece 90 degrees clockwise when rotation is valid
+**Validates: Requirements 2.3**
 
 Property 7: Wall kick attempts on blocked rotation
 *For any* Tetromino where direct rotation would cause collision, the system should attempt wall kick position adjustments before rejecting the rotation
