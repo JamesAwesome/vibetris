@@ -46,6 +46,8 @@ require("test_automatic_descent")
 require("test_lock_delay")
 require("test_spawn_after_lock")
 require("test_game_over")
+require("test_line_clearing")
+require("test_row_collapse")
 
 print("Playdate Tetris - Property-Based Test Suite")
 print("============================================")

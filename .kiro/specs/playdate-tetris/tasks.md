@@ -53,7 +53,7 @@
   - **Property 8: Failed rotation preserves state**
   - **Validates: Requirements 2.4**
 
-- [ ] 5. Implement piece falling and locking
+- [x] 5. Implement piece falling and locking
   - Implement automatic downward movement with timer
   - Implement lock delay mechanism
   - Implement piece locking to playfield
@@ -76,16 +76,16 @@
   - **Property 5: Game over on blocked spawn**
   - **Validates: Requirements 1.5**
 
-- [ ] 6. Implement line clearing system
+- [x] 6. Implement line clearing system
   - Implement line completion detection
   - Implement line removal and row collapse
   - _Requirements: 5.1, 5.2_
 
-- [ ] 6.1 Write property test for line clearing
+- [x] 6.1 Write property test for line clearing
   - **Property 13: Complete rows are cleared**
   - **Validates: Requirements 5.1**
 
-- [ ] 6.2 Write property test for row collapse
+- [x] 6.2 Write property test for row collapse
   - **Property 14: Rows collapse after line clear**
   - **Validates: Requirements 5.2**
 
