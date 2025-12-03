@@ -43,6 +43,7 @@ require("test_framework")
 local unit_tests_passed = require("test_tetromino_shapes")
 require("test_menu_scrolling")
 require("test_a_button_hard_drop")
+require("test_a_button_restart")
 require("test_game_manager")
 require("test_shadow_calculation")
 

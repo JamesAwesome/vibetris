@@ -370,7 +370,7 @@ function Renderer:drawGameOverScreen(scoreManager)
     local linesX = (SCREEN_WIDTH - linesWidth) / 2
     local linesY = levelY + 25
     
-    local restartText = "Press Up to Restart"
+    local restartText = "Press A to Restart"
     local restartWidth = gfx.getTextSize(restartText)
     local restartX = (SCREEN_WIDTH - restartWidth) / 2
     local restartY = linesY + 40
