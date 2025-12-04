@@ -1,5 +1,5 @@
 -- Property-based test for fall speed scaling
--- Feature: playdate-tetris, Property 18: Higher levels have faster fall speed
+-- Feature: vibetris, Property 18: Higher levels have faster fall speed
 -- Validates: Requirements 6.2
 
 local lqc = require("lib/lqc")

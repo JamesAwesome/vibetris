@@ -47,7 +47,7 @@ local function createMenuManager()
     
     local manager = game.GameManager:new(
         playfield, factory, collisionDetector, 
-        scoreManager, inputHandler, gameState
+        scoreManager, inputHandler, gameState, nil
     )
     
     -- Reset mock states

@@ -1,12 +1,12 @@
-# Tetris for Playdate
+# Vibetris for Playdate
 
-A classic Tetris game built for the Playdate console using the Playdate Lua SDK.
+A classic block-stacking game built for the Playdate console using the Playdate Lua SDK.
 
 ![Vibetris Demo](https://github.com/JamesAwesome/vibetris/raw/main/vibetris-demo.gif)
 
 ## Features
 
-- Classic Tetris gameplay with all 7 standard tetrominos
+- Classic gameplay with all 7 standard tetrominos
 - Dual rotation input: use the Playdate crank or B button
 - Traditional controls: D-pad for movement, A/Up for hard drop
 - Progressive difficulty with increasing fall speed
@@ -42,7 +42,7 @@ sudo dnf install lua luarocks
 
 **Install test dependencies:**
 ```bash
-luarocks install --only-deps playdate-tetris-dev-1.rockspec
+luarocks install --only-deps vibetris-dev-1.rockspec
 ```
 
 This will install:
@@ -51,15 +51,15 @@ This will install:
 ## Building
 
 ```bash
-pdc source Tetris.pdx
+pdc source Vibetris.pdx
 ```
 
 ## Running
 
-Open the generated `Tetris.pdx` file with the Playdate Simulator, or run:
+Open the generated `Vibetris.pdx` file with the Playdate Simulator, or run:
 
 ```bash
-open Tetris.pdx
+open Vibetris.pdx
 ```
 
 ## Testing
@@ -73,7 +73,7 @@ lua tests/run_tests.lua
 Or via LuaRocks:
 
 ```bash
-luarocks test playdate-tetris-dev-1.rockspec
+luarocks test vibetris-dev-1.rockspec
 ```
 
 The test suite includes:
@@ -121,5 +121,5 @@ tests/
 ### Resources
 
 - [Playdate SDK Documentation](https://sdk.play.date/)
-- [Design Document](.kiro/specs/playdate-tetris/design.md)
-- [Requirements](.kiro/specs/playdate-tetris/requirements.md)
+- [Design Document](.kiro/specs/vibetris/design.md)
+- [Requirements](.kiro/specs/vibetris/requirements.md)

@@ -1,5 +1,5 @@
 -- Property-based test for B button rotation
--- Feature: playdate-tetris, Property 22: B button rotation changes piece orientation
+-- Feature: vibetris, Property 22: B button rotation changes piece orientation
 -- Validates: Requirements 2.3
 
 local lqc = require("lib/lqc")

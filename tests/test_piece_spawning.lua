@@ -1,5 +1,5 @@
 -- Property-based test for piece spawning
--- Feature: playdate-tetris, Property 1: Piece spawns at correct location on game start
+-- Feature: vibetris, Property 1: Piece spawns at correct location on game start
 -- Validates: Requirements 1.1
 
 local lqc = require("lib/lqc")

@@ -10,7 +10,7 @@ local SCORE_VALUES = {
     [1] = 40,   -- Single line
     [2] = 100,  -- Double
     [3] = 300,  -- Triple
-    [4] = 1200, -- Tetris
+    [4] = 1200, -- Four lines (Tetris)
 }
 
 -- Level progression: every 10 lines cleared increases level

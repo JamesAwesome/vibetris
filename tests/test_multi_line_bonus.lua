@@ -1,5 +1,5 @@
 -- Property-based test for multi-line bonus
--- Feature: playdate-tetris, Property 15: Multi-line clears award bonus points
+-- Feature: vibetris, Property 15: Multi-line clears award bonus points
 -- Validates: Requirements 5.3
 
 local lqc = require("lib/lqc")

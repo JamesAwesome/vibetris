@@ -46,8 +46,12 @@ require("test_a_button_hard_drop")
 require("test_a_button_restart")
 require("test_game_manager")
 require("test_shadow_calculation")
+require("test_logo_loading")
+require("test_logo_visibility")
 
 -- Property-based tests
+require("test_config_consistency")
+require("test_documentation_consistency")
 require("test_piece_spawning")
 require("test_collision_detection")
 require("test_horizontal_movement")

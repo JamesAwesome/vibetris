@@ -1,5 +1,5 @@
 -- Property-based test for shadow piece accuracy
--- Feature: playdate-tetris, Property 23: Shadow position matches hard drop destination
+-- Feature: vibetris, Property 23: Shadow position matches hard drop destination
 -- Validates: Requirements 4.3
 
 local lqc = require("lib/lqc")

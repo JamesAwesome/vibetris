@@ -1,5 +1,5 @@
 -- Property-based test for horizontal movement
--- Feature: playdate-tetris, Property 9: Horizontal movement changes position
+-- Feature: vibetris, Property 9: Horizontal movement changes position
 -- Validates: Requirements 3.1, 3.2
 
 local lqc = require("lib/lqc")

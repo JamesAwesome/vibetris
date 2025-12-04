@@ -1,5 +1,5 @@
 -- Property-based test for collision detection
--- Feature: playdate-tetris, Property 10: Invalid movements are rejected
+-- Feature: vibetris, Property 10: Invalid movements are rejected
 -- Validates: Requirements 3.3
 
 local lqc = require("lib/lqc")

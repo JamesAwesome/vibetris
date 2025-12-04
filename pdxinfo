@@ -1,7 +1,7 @@
-name=Tetris
+name=Vibetris
 author=Your Name
-description=Classic Tetris game for Playdate
-bundleID=com.yourname.tetris
+description=Classic block-stacking game for Playdate
+bundleID=com.yourname.vibetris
 version=1.0
 buildNumber=1
 imagePath=images/

@@ -43,11 +43,11 @@ local function test_initialization()
     
     local manager = game.GameManager:new(
         playfield, factory, collisionDetector, 
-        scoreManager, inputHandler, gameState
+        scoreManager, inputHandler, gameState, nil
     )
     
     assert(manager ~= nil, "GameManager should be created")
-    assert(manager.state == "menu", "Initial state should be 'menu'")
+    assert(manager.state == "start_screen", "Initial state should be 'start_screen'")
     assert(manager.playfield ~= nil, "Playfield should be set")
     assert(manager.factory ~= nil, "Factory should be set")
     assert(manager.scoreManager ~= nil, "ScoreManager should be set")
@@ -67,7 +67,7 @@ local function test_state_transitions()
     
     local manager = game.GameManager:new(
         playfield, factory, collisionDetector, 
-        scoreManager, inputHandler, gameState
+        scoreManager, inputHandler, gameState, nil
     )
     
     -- Test menu -> playing
@@ -104,7 +104,7 @@ local function test_component_integration()
     
     local manager = game.GameManager:new(
         playfield, factory, collisionDetector, 
-        scoreManager, inputHandler, gameState
+        scoreManager, inputHandler, gameState, nil
     )
     
     manager:init()
@@ -131,7 +131,7 @@ local function test_update_loop()
     
     local manager = game.GameManager:new(
         playfield, factory, collisionDetector, 
-        scoreManager, inputHandler, gameState
+        scoreManager, inputHandler, gameState, nil
     )
     
     manager:init()
@@ -157,7 +157,7 @@ local function test_playing_state_update()
     
     local manager = game.GameManager:new(
         playfield, factory, collisionDetector, 
-        scoreManager, inputHandler, gameState
+        scoreManager, inputHandler, gameState, nil
     )
     
     manager:init()
@@ -183,7 +183,7 @@ local function test_paused_state_update()
     
     local manager = game.GameManager:new(
         playfield, factory, collisionDetector, 
-        scoreManager, inputHandler, gameState
+        scoreManager, inputHandler, gameState, nil
     )
     
     manager:init()
@@ -210,7 +210,7 @@ local function test_gameover_state_update()
     
     local manager = game.GameManager:new(
         playfield, factory, collisionDetector, 
-        scoreManager, inputHandler, gameState
+        scoreManager, inputHandler, gameState, nil
     )
     
     manager:init()
@@ -237,7 +237,7 @@ local function test_line_clear_animation()
     
     local manager = game.GameManager:new(
         playfield, factory, collisionDetector, 
-        scoreManager, inputHandler, gameState
+        scoreManager, inputHandler, gameState, nil
     )
     
     manager:init()
@@ -270,7 +270,7 @@ local function test_animation_completion()
     
     local manager = game.GameManager:new(
         playfield, factory, collisionDetector, 
-        scoreManager, inputHandler, gameState
+        scoreManager, inputHandler, gameState, nil
     )
     
     manager:init()
@@ -305,7 +305,7 @@ local function test_handle_input()
     
     local manager = game.GameManager:new(
         playfield, factory, collisionDetector, 
-        scoreManager, inputHandler, gameState
+        scoreManager, inputHandler, gameState, nil
     )
     
     manager:init()
@@ -331,11 +331,11 @@ local function test_state_getters()
     
     local manager = game.GameManager:new(
         playfield, factory, collisionDetector, 
-        scoreManager, inputHandler, gameState
+        scoreManager, inputHandler, gameState, nil
     )
     
-    -- Test menu state
-    assert(manager:getState() == "menu", "Should be in menu state")
+    -- Test start_screen state (initial state)
+    assert(manager:getState() == "start_screen", "Should be in start_screen state")
     assert(not manager:isPlaying(), "Should not be playing")
     assert(not manager:isPaused(), "Should not be paused")
     assert(not manager:isGameOver(), "Should not be game over")

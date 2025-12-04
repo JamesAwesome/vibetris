@@ -1,5 +1,5 @@
 -- Property-based test for score updates
--- Feature: playdate-tetris, Property 16: Line clears update score
+-- Feature: vibetris, Property 16: Line clears update score
 -- Validates: Requirements 5.4
 
 local lqc = require("lib/lqc")

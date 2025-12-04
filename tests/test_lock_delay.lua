@@ -1,5 +1,5 @@
 -- Property-based test for lock delay
--- Feature: playdate-tetris, Property 3: Lock delay preserves piece state
+-- Feature: vibetris, Property 3: Lock delay preserves piece state
 -- Validates: Requirements 1.3
 
 local lqc = require("lib/lqc")

@@ -1,5 +1,5 @@
 -- Property-based test for rotation
--- Feature: playdate-tetris, Property 6: Crank rotation changes piece orientation
+-- Feature: vibetris, Property 6: Crank rotation changes piece orientation
 -- Validates: Requirements 2.1, 2.2
 
 local lqc = require("lib/lqc")

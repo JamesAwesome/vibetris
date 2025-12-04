@@ -1,5 +1,5 @@
 -- Property-based test for row collapse after line clear
--- Feature: playdate-tetris, Property 14: Rows collapse after line clear
+-- Feature: vibetris, Property 14: Rows collapse after line clear
 -- Validates: Requirements 5.2
 
 local lqc = require("lib/lqc")

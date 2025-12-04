@@ -1,5 +1,5 @@
 -- Property-based test for pause round trip
--- Feature: playdate-tetris, Property 21: Pause-unpause round trip
+-- Feature: vibetris, Property 21: Pause-unpause round trip
 -- Validates: Requirements 9.3
 
 local lqc = require("lib/lqc")

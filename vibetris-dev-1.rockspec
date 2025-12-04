@@ -1,22 +1,22 @@
 rockspec_format = "3.0"
-package = "playdate-tetris"
+package = "vibetris"
 version = "dev-1"
 
 source = {
-   url = "git://github.com/yourusername/playdate-tetris.git"
+   url = "git://github.com/yourusername/vibetris.git"
 }
 
 description = {
-   summary = "A Tetris implementation for the Playdate handheld console",
+   summary = "A Vibetris implementation for the Playdate handheld console",
    detailed = [[
-      A classic Tetris game built for the Playdate console featuring:
+      A classic block-stacking game built for the Playdate console featuring:
       - Dual rotation input (crank or B button)
       - Traditional Tetris mechanics with wall kicks
       - Line clearing with visual feedback
       - Progressive difficulty scaling
       - Comprehensive test suite with property-based testing
    ]],
-   homepage = "https://github.com/yourusername/playdate-tetris",
+   homepage = "https://github.com/yourusername/vibetris",
    license = "MIT"
 }
 

@@ -1,5 +1,5 @@
 -- Property-based test for spawn after lock
--- Feature: playdate-tetris, Property 4: Spawn after lock
+-- Feature: vibetris, Property 4: Spawn after lock
 -- Validates: Requirements 1.4
 
 local lqc = require("lib/lqc")

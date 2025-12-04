@@ -1,5 +1,5 @@
 -- Property-based test for soft drop
--- Feature: playdate-tetris, Property 11: Soft drop increases fall speed
+-- Feature: vibetris, Property 11: Soft drop increases fall speed
 -- Validates: Requirements 4.1, 4.2
 
 local lqc = require("lib/lqc")

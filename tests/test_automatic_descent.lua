@@ -1,5 +1,5 @@
 -- Property-based test for automatic piece descent
--- Feature: playdate-tetris, Property 2: Automatic piece descent
+-- Feature: vibetris, Property 2: Automatic piece descent
 -- Validates: Requirements 1.2
 
 local lqc = require("lib/lqc")

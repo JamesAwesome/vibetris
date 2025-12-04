@@ -13,6 +13,7 @@ import "input/init"
 import "game/state"
 import "game/manager"
 import "rendering/init"
+import "ui/start_screen"
 
 -- Initialize game components
 local playfield = Playfield:new(10, 20)
@@ -21,7 +22,8 @@ local collisionDetector = CollisionDetector
 local scoreManager = ScoreManager:new()
 local inputHandler = InputHandler:new()
 local gameState = GameState:new(playfield, factory, collisionDetector)
-local gameManager = GameManager:new(playfield, factory, collisionDetector, scoreManager, inputHandler, gameState)
+local startScreen = StartScreen:new()
+local gameManager = GameManager:new(playfield, factory, collisionDetector, scoreManager, inputHandler, gameState, startScreen)
 local renderer = Renderer:new()
 
 -- Set up system menu

@@ -5,7 +5,7 @@
 local GameManager = {}
 GameManager.__index = GameManager
 
-function GameManager:new(playfield, factory, collisionDetector, scoreManager, inputHandler, gameState)
+function GameManager:new(playfield, factory, collisionDetector, scoreManager, inputHandler, gameState, startScreen)
     local self = setmetatable({}, GameManager)
     
     -- Core components
@@ -15,9 +15,15 @@ function GameManager:new(playfield, factory, collisionDetector, scoreManager, in
     self.scoreManager = scoreManager
     self.inputHandler = inputHandler
     self.gameState = gameState
+    self.startScreen = startScreen
     
-    -- State machine: "menu", "playing", "paused", "gameover"
-    self.state = "menu"
+    -- State machine: "start_screen", "menu", "playing", "paused", "gameover"
+    self.state = "start_screen"
+    
+    -- Show start screen on initialization
+    if self.startScreen then
+        self.startScreen:show()
+    end
     
     -- Menu scroll state
     self.menuScrollOffset = 0
@@ -61,7 +67,9 @@ end
 function GameManager:update(dt)
     -- Main update loop
     
-    if self.state == "menu" then
+    if self.state == "start_screen" then
+        self:updateStartScreen(dt)
+    elseif self.state == "menu" then
         self:updateMenu(dt)
     elseif self.state == "playing" then
         self:updatePlaying(dt)
@@ -69,6 +77,19 @@ function GameManager:update(dt)
         self:updatePaused(dt)
     elseif self.state == "gameover" then
         self:updateGameOver(dt)
+    end
+end
+
+function GameManager:updateStartScreen(dt)
+    -- Handle start screen state
+    if self.startScreen then
+        local shouldTransition = self.startScreen:update(dt)
+        if shouldTransition then
+            self:changeState("menu")
+        end
+    else
+        -- No start screen, go directly to menu
+        self:changeState("menu")
     end
 end
 
@@ -216,7 +237,7 @@ end
 
 function GameManager:changeState(newState)
     -- Change the game state
-    local validStates = {menu = true, playing = true, paused = true, gameover = true}
+    local validStates = {start_screen = true, menu = true, playing = true, paused = true, gameover = true}
     
     if not validStates[newState] then
         error("Invalid game state: " .. tostring(newState))

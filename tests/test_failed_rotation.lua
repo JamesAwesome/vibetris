@@ -1,5 +1,5 @@
 -- Property-based test for failed rotation
--- Feature: playdate-tetris, Property 8: Failed rotation preserves state
+-- Feature: vibetris, Property 8: Failed rotation preserves state
 -- Validates: Requirements 2.4
 
 local lqc = require("lib/lqc")

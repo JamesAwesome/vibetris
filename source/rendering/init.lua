@@ -412,7 +412,7 @@ function Renderer:drawMenuScreen(scrollOffset)
     gfx.setImageDrawMode(gfx.kDrawModeFillBlack)
     
     -- Draw title
-    local titleText = "TETRIS"
+    local titleText = "VIBETRIS"
     local titleWidth = gfx.getTextSize(titleText)
     local titleX = (SCREEN_WIDTH - titleWidth) / 2
     local titleY = 20 - scrollOffset
@@ -464,7 +464,12 @@ function Renderer:render(gameManager)
     
     local state = gameManager:getState()
     
-    if state == "menu" then
+    if state == "start_screen" then
+        -- Render start screen
+        if gameManager.startScreen then
+            gameManager.startScreen:render()
+        end
+    elseif state == "menu" then
         self:drawMenuScreen(gameManager.menuScrollOffset)
     elseif state == "playing" then
         -- Draw game elements

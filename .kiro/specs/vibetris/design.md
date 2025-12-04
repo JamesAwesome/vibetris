@@ -390,7 +390,7 @@ Property-based tests will verify universal properties across all inputs using **
 
 **Tagging Format:**
 ```lua
--- Feature: playdate-tetris, Property 10: Invalid movements are rejected
+-- Feature: vibetris, Property 10: Invalid movements are rejected
 ```
 
 **Property Test Coverage:**
@@ -401,7 +401,7 @@ Property-based tests will verify universal properties across all inputs using **
 
 **Example Property Test Structure:**
 ```lua
--- Feature: playdate-tetris, Property 12: Hard drop moves to lowest position
+-- Feature: vibetris, Property 12: Hard drop moves to lowest position
 property("hard drop moves piece to lowest valid position", function()
   local piece = generateRandomTetromino()
   local playfield = generateRandomPlayfield()

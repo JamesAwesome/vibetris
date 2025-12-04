@@ -64,7 +64,8 @@ local function test_a_button_restarts_game()
         collisionDetector,
         scoreManager,
         inputHandler,
-        gameState
+        gameState,
+        nil
     )
     
     -- Set game to game over state
@@ -104,7 +105,8 @@ local function test_other_buttons_dont_restart()
         collisionDetector,
         scoreManager,
         inputHandler,
-        gameState
+        gameState,
+        nil
     )
     
     -- Set game to game over state
@@ -149,7 +151,8 @@ local function test_game_state_reset_after_restart()
         collisionDetector,
         scoreManager,
         inputHandler,
-        gameState
+        gameState,
+        nil
     )
     gameManager:init()
     

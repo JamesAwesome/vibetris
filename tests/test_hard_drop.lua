@@ -1,5 +1,5 @@
 -- Property-based test for hard drop
--- Feature: playdate-tetris, Property 12: Hard drop moves to lowest position
+-- Feature: vibetris, Property 12: Hard drop moves to lowest position
 -- Validates: Requirements 4.3
 
 local lqc = require("lib/lqc")

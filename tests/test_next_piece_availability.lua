@@ -1,5 +1,5 @@
 -- Property-based test for next piece availability
--- Feature: playdate-tetris, Property 19: Next piece is always available
+-- Feature: vibetris, Property 19: Next piece is always available
 -- Validates: Requirements 7.1
 
 local lqc = require("lib/lqc")

@@ -1,5 +1,5 @@
 -- Property-based test for wall kicks
--- Feature: playdate-tetris, Property 7: Wall kick attempts on blocked rotation
+-- Feature: vibetris, Property 7: Wall kick attempts on blocked rotation
 -- Validates: Requirements 2.3
 
 local lqc = require("lib/lqc")

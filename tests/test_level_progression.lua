@@ -1,5 +1,5 @@
 -- Property-based test for level progression
--- Feature: playdate-tetris, Property 17: Level increases with line threshold
+-- Feature: vibetris, Property 17: Level increases with line threshold
 -- Validates: Requirements 6.1
 
 local lqc = require("lib/lqc")

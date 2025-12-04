@@ -1,5 +1,5 @@
 -- Property-based test for line clearing
--- Feature: playdate-tetris, Property 13: Complete rows are cleared
+-- Feature: vibetris, Property 13: Complete rows are cleared
 -- Validates: Requirements 5.1
 
 local lqc = require("lib/lqc")

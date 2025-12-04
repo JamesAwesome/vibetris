@@ -1,5 +1,5 @@
 -- Property-based test for pause behavior
--- Feature: playdate-tetris, Property 20: Pause prevents game updates
+-- Feature: vibetris, Property 20: Pause prevents game updates
 -- Validates: Requirements 9.2
 
 local lqc = require("lib/lqc")

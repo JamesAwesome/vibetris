@@ -1,5 +1,5 @@
 -- Property-based test for game over condition
--- Feature: playdate-tetris, Property 5: Game over on blocked spawn
+-- Feature: vibetris, Property 5: Game over on blocked spawn
 -- Validates: Requirements 1.5
 
 local lqc = require("lib/lqc")

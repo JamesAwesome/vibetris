@@ -1,9 +1,9 @@
-# Playdate Tetris - Project Structure
+# Vibetris - Project Structure
 
 ## Directory Layout
 
 ```
-playdate-tetris/
+vibetris/
 ├── source/                  # Game source code
 │   ├── main.lua            # Entry point and game loop
 │   ├── game/               # Game state management
@@ -20,10 +20,10 @@ playdate-tetris/
 │   ├── run_tests.lua       # Test runner
 │   ├── test_framework.lua  # Framework verification tests
 │   └── README.md           # Testing documentation
-├── Tetris.pdx/             # Compiled game bundle
+├── Vibetris.pdx/           # Compiled game bundle
 ├── .kiro/                  # Kiro specs and documentation
 │   └── specs/
-│       └── playdate-tetris/
+│       └── vibetris/
 │           ├── requirements.md
 │           ├── design.md
 │           └── tasks.md
@@ -87,4 +87,4 @@ See `tests/README.md` for detailed testing documentation.
 
 ## Building
 
-The Playdate SDK will compile the `source/` directory into `Tetris.pdx/` for deployment to the Playdate device or simulator.
+The Playdate SDK will compile the `source/` directory into `Vibetris.pdx/` for deployment to the Playdate device or simulator.

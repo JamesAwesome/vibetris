@@ -69,7 +69,8 @@ run_test("animation starts when lines are cleared", function()
         collisionDetector,
         scoreManager,
         inputHandler,
-        gameState
+        gameState,
+        nil
     )
     manager:init()
     
@@ -103,7 +104,8 @@ run_test("animation completes and clears lines", function()
         collisionDetector,
         scoreManager,
         inputHandler,
-        gameState
+        gameState,
+        nil
     )
     manager:init()
     
@@ -151,7 +153,8 @@ run_test("game logic pauses during animation", function()
         collisionDetector,
         scoreManager,
         inputHandler,
-        gameState
+        gameState,
+        nil
     )
     manager:init()
     
@@ -188,7 +191,8 @@ run_test("multiple lines can be animated simultaneously", function()
         collisionDetector,
         scoreManager,
         inputHandler,
-        gameState
+        gameState,
+        nil
     )
     manager:init()
     
