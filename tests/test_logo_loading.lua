@@ -120,11 +120,11 @@ local function test_start_screen_timeout()
     startScreen:show()
     
     -- Update for less than display duration
-    local shouldTransition = startScreen:update(1.0)
+    local shouldTransition = startScreen:update(3.0)
     assert(not shouldTransition, "Should not transition before timeout")
     
     -- Update past display duration
-    shouldTransition = startScreen:update(1.5)
+    shouldTransition = startScreen:update(5.5)
     assert(shouldTransition, "Should transition after timeout")
     
     print("✓ Start screen transitions after timeout")

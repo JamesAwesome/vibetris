@@ -1,0 +1,7 @@
+name=Vibetris
+author=James Awesome
+description=Classic block-stacking game for Playdate
+bundleID=com.jamesawesome.Vibetris
+version=1.1
+buildNumber=1
+imagePath=images/

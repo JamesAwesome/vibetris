@@ -29,7 +29,7 @@ function StartScreen:new()
     
     -- Display state
     self.displayed = false
-    self.displayDuration = 2.0 -- seconds
+    self.displayDuration = 5.0 -- seconds
     self.timer = 0
     
     return self
